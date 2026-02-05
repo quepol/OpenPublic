@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hillary Hartley | Public Sector Delivery Leadership</title>
+    <meta name="description" content="I help public-sector leaders build the internal capacity, teams, and governance needed to turn ambition into reliable outcomes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Hillary Hartley / Open<span class="logo-accent">Public</span></a>
+            <div class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#work" onclick="closeNav()">What I Do</a></li>
+                <li><a href="#about" onclick="closeNav()">About Me</a></li>
+                <li><a href="#contact" onclick="closeNav()">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h1 class="hero-headline">Building the conditions for public institutions to deliver.</h1>
+            <p class="hero-subhead">I help public-sector leaders build the internal capacity, teams, and governance needed to turn ambition into reliable outcomes.</p>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+            <div class="section-content">
+                <p>Successful public service delivery depends on leaders fluent in the language of delivery, teams with the skills to manage outcomes, and governance that clears the path—whether work is done in-house or with partners. Too often, leaders are accountable for results without knowing what good looks like, what questions to ask, or when they're being sold expensive theater.</p>
+                <p>Public institutions deliver when policy, design, and technology work together—not sequential handoffs, but integrated teams. That means structures built for multidisciplinary co-creation, governance that supports test-and-learn approaches, and relentless focus on end users. When those conditions don't exist, even the best policy intent produces little.</p>
+                <p>My work sits in that gap between mandate and execution. I help leaders build delivery capacity in practice: clarifying decision rights, standing up empowered cross-functional teams, and designing governance that allows policy, funding, and delivery to move together rather than in silos. I'm most often brought in when programs are politically sensitive, vendor-heavy, or stuck—when success depends less on hiring more consultants and more on building the muscle to deliver.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-content">
+                <p>I've spent my career working at the intersection of government, technology, and leadership—co-founding 18F, serving as Ontario's first Chief Digital and Data Officer and leading the Ontario Digital Service, and advising public-interest organizations and boards, including North Guide.</p>
+                <p>Across these roles, I've seen the same pattern repeat: initiatives fail not because teams lack talent or intent, but because institutions aren't designed to support delivery. My work is grounded in a simple belief—governments and public-interest institutions earn trust through reliability.</p>
+                <p>That requires leaders fluent in the language of delivery, teams with the skills to manage outcomes, and governance that clears the path—whether you're building in-house or working with partners.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="section-content">
+                <p>If you're a public-sector leader, board, or delivery partner who needs to build delivery capacity—not just buy more strategy—I'd love to have a conversation.</p>
+                <a href="mailto:hello@openpublic.cc" class="email-link">hello@openpublic.cc</a>
+                <p class="cta-note">Short, focused discussions. No pitches. Clear next steps.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <span class="footer-text">© 2025 Hillary Hartley</span>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hillaryhartley/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://medium.com/@hillary.hartley" target="_blank" rel="noopener noreferrer">Medium</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        function closeNav() {
+            document.querySelector('.nav-links').classList.remove('active');
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('.nav-links');
+            const toggle = document.querySelector('.nav-toggle');
+            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
