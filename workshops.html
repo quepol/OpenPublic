@@ -175,6 +175,23 @@
                 nav.classList.remove('active');
             }
         });
+
+        // Copy email to clipboard on click
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                const email = this.href.replace('mailto:', '');
+                navigator.clipboard.writeText(email).then(function() {
+                    // Show copied notification
+                    const notification = document.createElement('div');
+                    notification.className = 'email-copied';
+                    notification.textContent = 'Email copied to clipboard!';
+                    document.body.appendChild(notification);
+                    setTimeout(function() {
+                        notification.remove();
+                    }, 2000);
+                });
+            });
+        });
     </script>
 </body>
 </html>
