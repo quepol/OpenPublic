@@ -181,6 +181,27 @@ section {
     position: relative;
 }
 
+.about-layout {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.about-layout .section-content {
+    flex: 1;
+}
+
+.about-image {
+    flex-shrink: 0;
+    width: 225px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
 #about::before {
     content: '';
     position: absolute;
@@ -315,6 +336,15 @@ footer {
 
     .hero-headline {
         margin-bottom: 1.5rem;
+    }
+
+    .about-layout {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .about-image {
+        width: 160px;
     }
 
     .footer-container {
