@@ -8,7 +8,7 @@ This document provides guidance for AI assistants working with the OpenPublic re
 
 - **Author**: Hillary Hartley
 - **License**: MIT License (2025)
-- **Status**: Early-stage / Coming Soon
+- **Status**: Active
 
 ## Repository Structure
 
@@ -18,32 +18,36 @@ OpenPublic/
 ├── CNAME              # GitHub Pages custom domain (openpublic.cc)
 ├── LICENSE            # MIT License
 ├── README.md          # Repository description
-└── index.md           # Homepage content
+├── index.html         # Homepage
+├── workshops.html     # Workshops page
+├── styles.css         # Site-wide styles
+└── hillary-hartley.jpg # Author photo
 ```
 
-This is a minimal static site with no build tools, frameworks, or dependencies.
+This is a static site with no build tools, frameworks, or dependencies.
 
 ## Technology Stack
 
 - **Hosting**: GitHub Pages
-- **Content Format**: Markdown (.md files)
+- **Content Format**: HTML and CSS
 - **Domain**: openpublic.cc (configured via CNAME)
 
-GitHub Pages automatically renders Markdown files as HTML. No build step is required.
+No build step is required. HTML files are served directly by GitHub Pages.
 
 ## Development Workflow
 
 ### Making Changes
 
-1. Edit Markdown files directly
+1. Edit HTML/CSS files directly
 2. Commit changes with clear, descriptive messages
 3. Push to the appropriate branch
 4. GitHub Pages automatically deploys changes from the main branch
 
 ### File Conventions
 
-- **Markdown**: Use standard GitHub-flavored Markdown for all content
-- **index.md**: Serves as the homepage at openpublic.cc
+- **HTML**: Pages use semantic HTML5
+- **CSS**: All styles in `styles.css`
+- **index.html**: Homepage at openpublic.cc
 - **CNAME**: Do not modify unless changing the custom domain
 
 ### Branching
@@ -58,7 +62,7 @@ GitHub Pages automatically renders Markdown files as HTML. No build step is requ
 
 1. **Keep it simple**: This is a static site - avoid suggesting build tools or frameworks unless explicitly requested
 2. **Preserve the tone**: Match the existing minimalist, direct style ("in the open // for the public")
-3. **Markdown formatting**: Use clean, readable Markdown with proper heading hierarchy
+3. **Consistent styling**: Use the existing CSS classes and maintain visual consistency across pages
 
 ### What NOT to Do
 
@@ -68,17 +72,16 @@ GitHub Pages automatically renders Markdown files as HTML. No build step is requ
 
 ### What TO Do
 
-- Maintain clean, readable Markdown
+- Maintain clean, readable HTML and CSS
 - Use descriptive commit messages
 - Respect the minimalist aesthetic of the project
-- When adding new pages, follow the existing file naming conventions (lowercase, .md extension)
+- When adding new pages, follow the existing file naming conventions (lowercase, .html extension)
 
 ## GitHub Pages Notes
 
 - Changes pushed to the main branch are automatically deployed
-- Markdown files are rendered as HTML by GitHub Pages
+- HTML files are served directly by GitHub Pages
 - The CNAME file configures the custom domain mapping to openpublic.cc
-- Jekyll is the default static site generator (runs automatically, no configuration needed)
 
 ## Useful Commands
 
