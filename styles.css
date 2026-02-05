@@ -342,3 +342,124 @@ footer {
 section[id] {
     scroll-margin-top: 70px;
 }
+
+/* ========================================
+   Subpage Styles (Workshops, etc.)
+   ======================================== */
+
+/* Page Hero - for subpages */
+.page-hero {
+    padding-top: 140px;
+    padding-bottom: 5rem;
+}
+
+.page-hero .hero-headline {
+    margin-bottom: 2.5rem;
+}
+
+.page-hero .hero-subhead {
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-note {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pink);
+    margin-top: 2rem;
+}
+
+/* Workshop Sections */
+.workshop-section {
+    padding: 5rem 2rem;
+}
+
+.workshop-section.alt-bg {
+    background: var(--gray-light);
+}
+
+.workshop-title {
+    font-family: 'Momo Trust Display', 'Inter', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--pink);
+    margin-bottom: 1.5rem;
+}
+
+.workshop-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.workshop-audience {
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.workshop-audience strong {
+    color: var(--black);
+}
+
+.workshop-outcomes-label {
+    margin-bottom: 0.75rem;
+    color: var(--black);
+}
+
+.workshop-outcomes {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding-left: 0;
+}
+
+.workshop-outcomes li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--black);
+}
+
+.workshop-outcomes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    background-color: var(--pink);
+}
+
+.workshop-details {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+}
+
+/* Mobile adjustments for workshops */
+@media (max-width: 768px) {
+    .page-hero {
+        padding-top: 120px;
+        padding-bottom: 4rem;
+    }
+
+    .workshop-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .workshop-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .workshop-title {
+        font-size: 1.3rem;
+    }
+
+    .workshop-description {
+        font-size: 1rem;
+    }
+}
