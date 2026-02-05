@@ -1,3 +1,13 @@
+/* Momo Trust Display from Fontsource CDN */
+@font-face {
+    font-family: 'Momo Trust Display';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/momo-trust-display@latest/latin-400-normal.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/fontsource/fonts/momo-trust-display@latest/latin-400-normal.woff) format('woff');
+}
+
 :root {
     --pink: #FF1493;
     --black: #000000;
@@ -49,7 +59,7 @@ nav {
 
 .nav-logo {
     font-family: 'Momo Trust Display', 'Inter', sans-serif;
-    font-weight: 800;
+    font-weight: 400;
     font-size: 1.3rem;
     color: var(--black);
     text-decoration: none;
@@ -136,7 +146,7 @@ section {
 .hero-headline {
     font-family: 'Momo Trust Display', 'Inter', sans-serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--pink);
@@ -157,7 +167,7 @@ section {
     font-family: 'Momo Trust Display', 'Inter', sans-serif;
     display: inline-block;
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--white);
@@ -267,7 +277,7 @@ footer {
 }
 
 .footer-text {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
 }
 
@@ -277,11 +287,14 @@ footer {
 }
 
 .social-links a {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .social-links a:hover {
@@ -414,7 +427,7 @@ section[id] {
 .workshop-title {
     font-family: 'Momo Trust Display', 'Inter', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: var(--pink);
