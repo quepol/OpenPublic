@@ -192,17 +192,20 @@ section {
 }
 
 /* Call to Action */
-#contact {
+#contact,
+#booking {
     background: var(--black);
     color: var(--white);
 }
 
-#contact .section-title {
+#contact .section-title,
+#booking .section-title {
     color: var(--white);
     background-color: var(--pink);
 }
 
-#contact .section-content p {
+#contact .section-content p,
+#booking .section-content p {
     color: var(--white);
 }
 
