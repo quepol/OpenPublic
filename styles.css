@@ -24,6 +24,8 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -528,6 +530,7 @@ footer {
         right: 0;
         background: var(--white);
         flex-direction: column;
+        align-items: flex-start;
         padding: 2rem;
         gap: 1.5rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -545,12 +548,25 @@ footer {
 
     .nav-links a {
         font-size: 1.1rem;
+        text-align: left;
+    }
+
+    .nav-dropdown {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
     }
 
     .nav-dropdown-toggle {
         font-size: 1.1rem;
         width: 100%;
         justify-content: flex-start;
+        gap: 0.5rem;
+        padding: 0;
+    }
+
+    .dropdown-arrow {
+        margin-left: auto;
     }
 
     .nav-dropdown-menu {
@@ -558,10 +574,11 @@ footer {
         transform: none;
         box-shadow: none;
         border: none;
-        background: transparent;
+        background: var(--gray-light);
         padding: 0;
         margin: 0;
         min-width: auto;
+        width: 100%;
         max-height: 0;
         overflow: hidden;
         opacity: 1;
@@ -581,11 +598,16 @@ footer {
         max-height: 300px;
     }
 
+    .nav-dropdown-menu li {
+        width: 100%;
+    }
+
     .nav-dropdown-menu a {
-        padding: 0.8rem 0 0.8rem 1.5rem;
+        padding: 0.8rem 1.5rem;
         font-size: 1rem;
-        border-left: 2px solid var(--pink);
-        margin-left: 0.5rem;
+        border-left: 3px solid var(--pink);
+        white-space: normal;
+        width: 100%;
     }
 
     section {
