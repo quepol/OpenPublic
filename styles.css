@@ -76,6 +76,7 @@ nav {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 2.5rem;
     list-style: none;
 }
@@ -105,6 +106,96 @@ nav {
     height: 2px;
     background: var(--black);
     transition: all 0.3s ease;
+}
+
+/* Dropdown Navigation */
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-dropdown-toggle {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--black);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    position: relative;
+    top: 1px;
+    transition: color 0.2s ease;
+}
+
+.nav-dropdown-toggle:hover {
+    color: var(--pink);
+}
+
+.dropdown-arrow {
+    transition: transform 0.2s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    margin-top: 1rem;
+}
+
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    right: 0;
+    height: 1rem;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-dropdown-menu li {
+    margin: 0;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+    background-color: var(--gray-light);
+    color: var(--pink);
 }
 
 /* Sections */
@@ -324,15 +415,12 @@ section {
 }
 
 /* Call to Action */
-#contact,
-#booking {
+#contact {
     background: var(--black);
     color: var(--white);
 }
 
-
-#contact .section-content p,
-#booking .section-content p {
+#contact .section-content p {
     color: var(--white);
 }
 
@@ -459,6 +547,47 @@ footer {
         font-size: 1.1rem;
     }
 
+    .nav-dropdown-toggle {
+        font-size: 1.1rem;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        min-width: auto;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;
+        visibility: visible;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-dropdown-menu::before {
+        display: none;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+        max-height: 0;
+    }
+
+    .nav-dropdown.active .nav-dropdown-menu {
+        max-height: 300px;
+    }
+
+    .nav-dropdown-menu a {
+        padding: 0.8rem 0 0.8rem 1.5rem;
+        font-size: 1rem;
+        border-left: 2px solid var(--pink);
+        margin-left: 0.5rem;
+    }
+
     section {
         padding: 5rem 1.5rem;
     }
@@ -547,7 +676,8 @@ section[id] {
 }
 
 .workshop-section + .workshop-section:not(.alt-bg)::before,
-#workshops-intro::before {
+#workshops-intro::before,
+#speaking-intro::before {
     content: '';
     position: absolute;
     top: 0;
