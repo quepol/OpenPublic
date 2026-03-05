@@ -856,3 +856,345 @@ section[id] {
         font-size: 1rem;
     }
 }
+
+/* ========================================
+   Writing Page — Article Cards
+   ======================================== */
+
+.article-card {
+    padding: 2rem 0;
+}
+
+.article-card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--gray-text);
+}
+
+.article-card-pub {
+    font-weight: 600;
+    color: var(--black);
+}
+
+.article-card-dot {
+    color: var(--gray-text);
+}
+
+.article-card-date {
+    color: var(--gray-text);
+}
+
+.article-card-coauthor {
+    color: var(--gray-text);
+    font-style: italic;
+}
+
+.article-card-title {
+    font-family: 'Momo Trust Display', 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+}
+
+.article-card-title a {
+    color: var(--black);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-card-title a:hover {
+    color: var(--pink);
+}
+
+.article-card-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--gray-text);
+    max-width: 680px;
+    margin-bottom: 0.9rem;
+}
+
+.article-card-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-card-link.hosted {
+    color: var(--pink);
+}
+
+.article-card-link.hosted:hover {
+    color: var(--black);
+}
+
+.article-card-link.external {
+    color: var(--gray-text);
+}
+
+.article-card-link.external:hover {
+    color: var(--pink);
+}
+
+.article-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 20, 147, 0.15), transparent);
+}
+
+.section-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 20, 147, 0.3), transparent);
+}
+
+/* ========================================
+   Writing Page — Books Section
+   ======================================== */
+
+.book-entry {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.book-cover {
+    flex-shrink: 0;
+    width: 140px;
+}
+
+.book-cover a {
+    display: block;
+}
+
+.book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.book-cover img:hover {
+    transform: translateY(-2px);
+}
+
+.book-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Momo Trust Display', 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border-radius: 2px;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-family: 'Momo Trust Display', 'Inter', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+}
+
+.book-role {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pink);
+    margin-bottom: 0.3rem;
+}
+
+.book-meta {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+}
+
+.book-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--black);
+    margin-bottom: 1rem;
+    max-width: 580px;
+}
+
+.book-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.book-link:hover {
+    color: var(--pink);
+}
+
+@media (max-width: 600px) {
+    .book-entry {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .book-cover {
+        width: 110px;
+    }
+}
+
+/* ========================================
+   Individual Article Pages
+   ======================================== */
+
+.article-page-hero {
+    padding-top: 140px;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.article-page-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-text);
+}
+
+.article-page-pub {
+    font-weight: 600;
+    color: var(--black);
+}
+
+.article-page-title {
+    font-family: 'Momo Trust Display', 'Inter', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 1rem;
+    max-width: 760px;
+}
+
+.article-page-byline {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+}
+
+.article-page-byline strong {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.article-body {
+    padding: 4rem 2rem 5rem;
+}
+
+.article-body .container {
+    max-width: 680px;
+}
+
+.article-body p {
+    margin-bottom: 1.6rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--black);
+}
+
+.article-body p:last-child {
+    margin-bottom: 0;
+}
+
+.article-body h2 {
+    font-family: 'Momo Trust Display', 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-body h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.article-body ul,
+.article-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.6rem;
+}
+
+.article-body li {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.article-body a {
+    color: var(--pink);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 20, 147, 0.3);
+}
+
+.article-body a:hover {
+    text-decoration-color: var(--pink);
+}
+
+.article-back {
+    padding: 1.5rem 2rem;
+    background: var(--gray-light);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.article-back a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-back a:hover {
+    color: var(--pink);
+}
+
+.article-source-note {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .article-page-hero {
+        padding-top: 120px;
+        padding-bottom: 2.5rem;
+    }
+
+    .article-body {
+        padding: 3rem 1.5rem 4rem;
+    }
+}
