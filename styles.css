@@ -957,6 +957,12 @@ section[id] {
    Writing Page — Books Section
    ======================================== */
 
+.book-divider {
+    border: none;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    margin: 3rem 0;
+}
+
 .book-entry {
     display: flex;
     gap: 2.5rem;
