@@ -663,7 +663,7 @@ section[id] {
 }
 
 /* ========================================
-   Subpage Styles (Workshops, etc.)
+   Subpage Styles (Workshops, Writing, etc.)
    ======================================== */
 
 /* Page Hero - for subpages */
@@ -1094,7 +1094,7 @@ section[id] {
     font-weight: 400;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    color: var(--black);
+    color: var(--pink);
     margin-bottom: 1rem;
     max-width: 760px;
 }
