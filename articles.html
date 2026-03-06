@@ -17,7 +17,11 @@ Then provide the following information:
 
   OPTIONAL:
     Co-author:      Co-author name if applicable (e.g., with Aaron Snow)
-    Original URL:   URL of the original publication (adds source note at bottom of article page)
+    Source note:    Free-text attribution line shown at the bottom of the article page.
+                    (e.g., "Originally delivered as a keynote at the Civic Spark conference in August 2025.")
+                    If omitted but Original URL is provided, defaults to:
+                    "Originally published on [Publication]."
+    Original URL:   URL used in the default source note link (only needed when Source note is not provided)
 
 ================================================================================
   CLAUDE CODE DERIVES (do not ask Hillary for these)
@@ -146,8 +150,10 @@ Then provide the following information:
               Unordered:    <ul><li>...</li></ul>
               Ordered:      <ol><li>...</li></ol>
 
-            [If ORIGINAL_URL provided, also add:
-            <p class="article-source-note">Originally published on <a href="{{ORIGINAL_URL}}" target="_blank" rel="noopener noreferrer">{{PUBLICATION}}</a>.</p>]
+            [Source note logic:
+             - If SOURCE_NOTE provided: <p class="article-source-note">{{SOURCE_NOTE}}</p>
+             - If only ORIGINAL_URL provided: <p class="article-source-note">Originally published on <a href="{{ORIGINAL_URL}}" target="_blank" rel="noopener noreferrer">{{PUBLICATION}}</a>.</p>
+             - If neither: omit the paragraph entirely]
 
         </div>
     </section>
@@ -312,7 +318,8 @@ Then provide the following information:
                 <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Optional</h3>
                 <ul style="line-height: 1.8; padding-left: 1.5rem;">
                     <li><strong>Co-author</strong> — Co-author name if applicable (e.g., with Aaron Snow)</li>
-                    <li><strong>Original URL</strong> — URL of the original publication (adds a source note at the bottom of the article page)</li>
+                    <li><strong>Source note</strong> — Free-text attribution line at the bottom of the article page (e.g., "Originally delivered as a keynote at the Civic Spark conference in August 2025.")</li>
+                    <li><strong>Original URL</strong> — URL used when no explicit source note is provided; generates "Originally published on [Publication]." automatically</li>
                 </ul>
 
                 <p style="margin-top: 1.5rem;">Claude Code will derive the slug, formatted date, and card description automatically from the inputs above. The full templates are in the HTML comment at the top of this file's source code.</p>
