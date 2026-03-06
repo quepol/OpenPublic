@@ -163,7 +163,8 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 | Publication | Yes | Where published (e.g., Medium, 18F, Ontario Digital) |
 | Body | Yes | Article content as markdown |
 | Co-author | Optional | Co-author name (e.g., with Aaron Snow) |
-| Original URL | Optional | Source URL for "Originally published on..." note |
+| Source note | Optional | Free-text attribution line at bottom of article page (e.g., "Originally delivered as a keynote at the Civic Spark conference in August 2025.") |
+| Original URL | Optional | URL for the default source note; generates "Originally published on [Publication]." when no explicit Source note is provided |
 
 **Claude Code derives (do not ask Hillary for these):**
 
