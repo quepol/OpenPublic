@@ -127,9 +127,7 @@ Then provide the following information:
                 <span class="article-page-pub">{{PUBLICATION}}</span>
                 <span>·</span>
                 <span>{{DATE_DISPLAY}}</span>
-                <!-- If {{CO_AUTHOR}} is provided, add these two lines: -->
-                <!-- <span>·</span> -->
-                <!-- <span class="article-card-coauthor">with {{CO_AUTHOR}}</span> -->
+                [If CO_AUTHOR provided, also add: <span>·</span> <span class="article-card-coauthor">with {{CO_AUTHOR}}</span>]
             </div>
             <h1 class="article-page-title">{{TITLE}}</h1>
             <p class="article-page-byline">By <strong>Hillary Hartley</strong></p>
@@ -139,17 +137,17 @@ Then provide the following information:
     <section class="article-body">
         <div class="container">
 
-            <!-- ARTICLE BODY GOES HERE — convert markdown to HTML -->
-            <!-- Paragraphs:   <p>...</p> -->
-            <!-- Headings:     <h2>...</h2> or <h3>...</h3> -->
-            <!-- Bold:         <strong>...</strong> -->
-            <!-- Italic:       <em>...</em> -->
-            <!-- Links:        <a href="..." target="_blank" rel="noopener noreferrer">...</a> -->
-            <!-- Unordered:    <ul><li>...</li></ul> -->
-            <!-- Ordered:      <ol><li>...</li></ol> -->
+            ARTICLE BODY GOES HERE — convert markdown to HTML:
+              Paragraphs:   <p>...</p>
+              Headings:     <h2>...</h2> or <h3>...</h3>
+              Bold:         <strong>...</strong>
+              Italic:       <em>...</em>
+              Links:        <a href="..." target="_blank" rel="noopener noreferrer">...</a>
+              Unordered:    <ul><li>...</li></ul>
+              Ordered:      <ol><li>...</li></ol>
 
-            <!-- If {{ORIGINAL_URL}} is provided, add this source note: -->
-            <!-- <p class="article-source-note">Originally published on <a href="{{ORIGINAL_URL}}" target="_blank" rel="noopener noreferrer">{{PUBLICATION}}</a>.</p> -->
+            [If ORIGINAL_URL provided, also add:
+            <p class="article-source-note">Originally published on <a href="{{ORIGINAL_URL}}" target="_blank" rel="noopener noreferrer">{{PUBLICATION}}</a>.</p>]
 
         </div>
     </section>
@@ -220,9 +218,7 @@ Then provide the following information:
         <span class="article-card-pub">{{PUBLICATION}}</span>
         <span class="article-card-dot">·</span>
         <span class="article-card-date">{{DATE_DISPLAY}}</span>
-        <!-- If {{CO_AUTHOR}} provided: -->
-        <!-- <span class="article-card-dot">·</span> -->
-        <!-- <span class="article-card-coauthor">with {{CO_AUTHOR}}</span> -->
+        [If CO_AUTHOR provided, also add: <span class="article-card-dot">·</span> <span class="article-card-coauthor">with {{CO_AUTHOR}}</span>]
     </div>
     <h3 class="article-card-title">
         <a href="articles/{{DATE_SLUG}}-{{SLUG}}.html">{{TITLE}}</a>
