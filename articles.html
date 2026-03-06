@@ -16,9 +16,9 @@ Then provide the following information:
     Body:           Article content as markdown
 
   OPTIONAL:
-    Co-author:      Co-author name if applicable (e.g., with Aaron Snow)
+    Co-author:      Co-author name if applicable
     Source note:    Free-text attribution line shown at the bottom of the article page.
-                    (e.g., "Originally delivered as a keynote at the Civic Spark conference in August 2025.")
+                    (e.g., "Originally delivered as a keynote at FWD50 2025.")
                     If omitted but Original URL is provided, defaults to:
                     "Originally published on [Publication]."
     Original URL:   URL used in the default source note link (only needed when Source note is not provided)
@@ -152,6 +152,7 @@ Then provide the following information:
 
             [Source note logic:
              - If SOURCE_NOTE provided: <p class="article-source-note">{{SOURCE_NOTE}}</p>
+             - SOURCE_NOTE may include Markdown for links or styles
              - If only ORIGINAL_URL provided: <p class="article-source-note">Originally published on <a href="{{ORIGINAL_URL}}" target="_blank" rel="noopener noreferrer">{{PUBLICATION}}</a>.</p>
              - If neither: omit the paragraph entirely]
 
@@ -317,8 +318,8 @@ Then provide the following information:
 
                 <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Optional</h3>
                 <ul style="line-height: 1.8; padding-left: 1.5rem;">
-                    <li><strong>Co-author</strong> — Co-author name if applicable (e.g., with Aaron Snow)</li>
-                    <li><strong>Source note</strong> — Free-text attribution line at the bottom of the article page (e.g., "Originally delivered as a keynote at the Civic Spark conference in August 2025.")</li>
+                    <li><strong>Co-author</strong> — Co-author name if applicable</li>
+                    <li><strong>Source note</strong> — Free-text attribution line at the bottom of the article page (e.g., "Originally delivered as a keynote at FWD50 2025.")</li>
                     <li><strong>Original URL</strong> — URL used when no explicit source note is provided; generates "Originally published on [Publication]." automatically</li>
                 </ul>
 
