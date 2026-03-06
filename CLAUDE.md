@@ -150,11 +150,37 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 4. Add link to nav dropdown in **every existing page** if it should appear in nav
 5. Use lowercase `.html` filename
 
-### Adding a New Article (full-text hosted article)
+### Adding a New Article
 
-1. Create `articles/YYYYMMDD-slug.html` using `.article-page-*` CSS classes
-2. Add a card entry to `articles.html` using `.article-card` with class `.hosted` on the link
-3. Also add/update entry in the articles section of `writing.html`
+**Prompt workflow:** Hillary will say _"Please use the template to add a new article to the site"_ and provide the inputs below + markdown body content. The full template, step-by-step instructions, and both HTML templates (article page + card) live in the HTML comment at the top of `articles.html`.
+
+**Hillary provides:**
+
+| Input | Required | Description |
+|---|---|---|
+| Title | Yes | Full article title |
+| Date | Yes | Any readable format (e.g., March 6 2026, 2026-03-06, March 2026) |
+| Publication | Yes | Where published (e.g., Medium, 18F, Ontario Digital) |
+| Body | Yes | Article content as markdown |
+| Co-author | Optional | Co-author name (e.g., with Aaron Snow) |
+| Original URL | Optional | Source URL for "Originally published on..." note |
+
+**Claude Code derives (do not ask Hillary for these):**
+
+| Field | Rule |
+|---|---|
+| Slug | Lowercase title, strip punctuation, replace spaces with hyphens; truncate at ~60 chars at a word boundary |
+| Date display | Format as "Month D, YYYY" (or "Month YYYY" if only month+year given) |
+| Date slug | Format as YYYYMMDD (or YYYYMM if only month+year given) |
+| Description | Write a 1–2 sentence blurb from the article body; under ~200 chars; don't start with "This article..." |
+
+**Steps to follow:**
+1. Derive slug, date display, date slug, and description from the inputs above
+2. Create `articles/{{DATE_SLUG}}-{{SLUG}}.html` using the article page template in `articles.html`
+3. Convert provided markdown to semantic HTML inside `.article-body`
+4. Add a card to `writing.html` in the correct date position (newest first, compare `DATE_SLUG` numerically)
+5. Separate cards with `<div class="article-divider"></div>`
+6. Use `.article-card-link.hosted` for articles on this site; `.article-card-link.external` for external-only articles
 
 ### Branching
 
