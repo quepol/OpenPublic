@@ -11,40 +11,54 @@ Then provide the following information:
 
   REQUIRED:
     Title:          Full article title
-    Date display:   Human-readable date (e.g., March 6, 2026)
-    Date slug:      YYYYMMDD format (e.g., 20260306) — used for filename + ordering
-    Slug:           URL-friendly identifier (e.g., my-article-title)
+    Date:           Any readable format (e.g., March 6 2026, 2026-03-06, March 2026)
     Publication:    Where it was published (e.g., Medium, 18F, Ontario Digital)
-    Description:    1–2 sentence description for the article card in writing.html
+    Body:           Article content as markdown
 
   OPTIONAL:
     Co-author:      Co-author name if applicable (e.g., with Aaron Snow)
     Original URL:   URL of the original publication (adds source note at bottom of article page)
 
-  CONTENT:
-    Provide the article body as markdown. Claude Code will convert it to HTML.
+================================================================================
+  CLAUDE CODE DERIVES (do not ask Hillary for these)
+================================================================================
+
+  {{SLUG}}          Lowercase title, strip punctuation, replace spaces with hyphens.
+                    Keep it concise — truncate after ~60 chars at a word boundary.
+                    Example: "Beyond "Efficiency": What Critics..." → beyond-efficiency-what-critics-misunderstand-about-public-service
+
+  {{DATE_DISPLAY}}  Format the provided date as "Month D, YYYY" (e.g., March 6, 2026).
+                    If only month+year given, use "Month YYYY" (e.g., March 2026).
+
+  {{DATE_SLUG}}     Format the provided date as YYYYMMDD (e.g., 20260306).
+                    If only month+year given, use YYYYMM (e.g., 202603).
+
+  {{DESCRIPTION}}   Write a 1–2 sentence card blurb that captures the article's
+                    central argument or hook. Base it on the article body content.
+                    Keep it under ~200 characters. Do not start with "This article..."
 
 ================================================================================
   STEPS CLAUDE CODE SHOULD FOLLOW
 ================================================================================
 
-1. Create articles/{{DATE_SLUG}}-{{SLUG}}.html
+1. Derive {{SLUG}}, {{DATE_DISPLAY}}, {{DATE_SLUG}}, and {{DESCRIPTION}} from the inputs above.
+
+2. Create articles/{{DATE_SLUG}}-{{SLUG}}.html
    — Use the ARTICLE PAGE TEMPLATE below
    — Convert markdown body to semantic HTML (<p>, <h2>, <h3>, <ul>, <ol>)
    — If {{CO_AUTHOR}} is provided, add it to the article-page-meta line
    — If {{ORIGINAL_URL}} is provided, add the article-source-note paragraph
 
-2. Add a card to writing.html
+3. Add a card to writing.html
    — Find the correct position by comparing {{DATE_SLUG}} to existing card dates
      (newest first — higher YYYYMMDD numbers go higher up)
    — Use the ARTICLE CARD TEMPLATE below
    — Add <div class="article-divider"></div> between the new card and its neighbors
-   — The insertion comment is: <!-- ADD NEW CARD HERE — copy an article-card block below as the template -->
    — Always use class "hosted" on .article-card-link for articles in the articles/ directory
 
-3. If the article is external-only (no full text on this site):
-   — Skip step 1 (no article page)
-   — In step 2, set the href on both the title link and .article-card-link to the external URL
+4. If the article is external-only (no full text on this site):
+   — Skip step 2 (no article page)
+   — In step 3, set the href on both the title link and .article-card-link to the external URL
    — Use class "external" (not "hosted") on .article-card-link
    — Add target="_blank" rel="noopener noreferrer" to both links
 
@@ -294,11 +308,9 @@ Then provide the following information:
                 <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Required</h3>
                 <ul style="line-height: 1.8; padding-left: 1.5rem;">
                     <li><strong>Title</strong> — Full article title</li>
-                    <li><strong>Date display</strong> — Human-readable date (e.g., March 6, 2026)</li>
-                    <li><strong>Date slug</strong> — YYYYMMDD format (e.g., 20260306) — used for the filename and for ordering</li>
-                    <li><strong>Slug</strong> — URL-friendly identifier (e.g., my-article-title)</li>
+                    <li><strong>Date</strong> — Any readable format (e.g., March 6 2026, 2026-03-06, March 2026)</li>
                     <li><strong>Publication</strong> — Where it was published (e.g., Medium, 18F, Ontario Digital)</li>
-                    <li><strong>Description</strong> — 1–2 sentence description for the article card</li>
+                    <li><strong>Body</strong> — Article content as markdown</li>
                 </ul>
 
                 <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Optional</h3>
@@ -307,10 +319,7 @@ Then provide the following information:
                     <li><strong>Original URL</strong> — URL of the original publication (adds a source note at the bottom of the article page)</li>
                 </ul>
 
-                <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Content</h3>
-                <p>Provide the article body as <strong>markdown</strong>. Claude Code will convert it to HTML inside the article page.</p>
-
-                <p style="margin-top: 2rem;">The full article page template and card template are in the HTML comment at the top of this file's source code.</p>
+                <p style="margin-top: 1.5rem;">Claude Code will derive the slug, formatted date, and card description automatically from the inputs above. The full templates are in the HTML comment at the top of this file's source code.</p>
             </div>
         </div>
     </section>
