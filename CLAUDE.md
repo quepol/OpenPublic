@@ -23,7 +23,7 @@ OpenPublic/
 ├── speaking.html                # Speaking topics/engagements page
 ├── coaching.html                # Coaching services page
 ├── writing.html                 # Writing page (articles + books sections)
-├── articles.html                # Articles listing/index page
+├── articles.html                # Articles instruction page (unlisted)
 ├── resources.html               # Resources I Love page
 ├── styles.css                   # Site-wide styles (~22KB, 128+ CSS classes)
 ├── hillary-hartley.jpg          # Author photo
@@ -31,8 +31,6 @@ OpenPublic/
 ├── relationship-icon.svg        # Icon asset
 ├── training-icon.svg            # Icon asset
 ├── articles/                    # Directory of individual full-text article pages
-│   ├── 20140319-hello-world-we-are-18f.html
-│   ├── 20250302-deleting-18f.html
 │   └── ... (named YYYYMMDD-slug.html)
 └── services/                    # Hidden/unlisted service pages
     └── foundations_2025.html    # Foundation Workshops pricing (not in nav)
@@ -162,8 +160,8 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 | Date | Yes | Any readable format (e.g., March 6 2026, 2026-03-06, March 2026) |
 | Publication | Yes | Where published (e.g., Medium, 18F, Ontario Digital) |
 | Body | Yes | Article content as markdown |
-| Co-author | Optional | Co-author name (e.g., with Aaron Snow) |
-| Source note | Optional | Free-text attribution line at bottom of article page (e.g., "Originally delivered as a keynote at the Civic Spark conference in August 2025.") |
+| Co-author | Optional | Co-author name |
+| Source note | Optional | Free-text attribution line at bottom of article page (e.g., "Originally delivered as a keynote at FWD50 2025.") |
 | Original URL | Optional | URL for the default source note; generates "Originally published on [Publication]." when no explicit Source note is provided |
 
 **Claude Code derives (do not ask Hillary for these):**
@@ -205,6 +203,7 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 - Do not add new CSS frameworks or JavaScript libraries
 - Do not add inline styles — use `styles.css` classes
 - Do not link `services/foundations_2025.html` in navigation unless explicitly asked
+- Do not link `articles.html` in navigation unless explicitly asked
 - Do not create new CSS classes when existing ones cover the need
 
 ### What TO Do
