@@ -150,11 +150,29 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 4. Add link to nav dropdown in **every existing page** if it should appear in nav
 5. Use lowercase `.html` filename
 
-### Adding a New Article (full-text hosted article)
+### Adding a New Article
 
-1. Create `articles/YYYYMMDD-slug.html` using `.article-page-*` CSS classes
-2. Add a card entry to `articles.html` using `.article-card` with class `.hosted` on the link
-3. Also add/update entry in the articles section of `writing.html`
+**Prompt workflow:** Hillary will say _"Please use the template to add a new article to the site"_ and provide placeholder values + markdown body content. The full template, step-by-step instructions, and both HTML templates (article page + card) live in the HTML comment at the top of `articles.html`.
+
+**Placeholders Hillary will provide:**
+
+| Placeholder | Required | Description |
+|---|---|---|
+| Title | Yes | Full article title |
+| Date display | Yes | Human-readable date (e.g., March 6, 2026) |
+| Date slug | Yes | YYYYMMDD (e.g., 20260306) — for filename + ordering |
+| Slug | Yes | URL-friendly identifier (e.g., my-article-title) |
+| Publication | Yes | Where published (e.g., Medium, 18F, Ontario Digital) |
+| Description | Yes | 1–2 sentence card description |
+| Co-author | Optional | Co-author name (e.g., with Aaron Snow) |
+| Original URL | Optional | Source URL for "Originally published on..." note |
+
+**Steps to follow:**
+1. Create `articles/{{DATE_SLUG}}-{{SLUG}}.html` using the article page template in `articles.html`
+2. Convert provided markdown to semantic HTML inside `.article-body`
+3. Add a card to `writing.html` in the correct date position (newest first, compare `DATE_SLUG` numerically)
+4. Separate cards with `<div class="article-divider"></div>`
+5. Use `.article-card-link.hosted` for articles on this site; `.article-card-link.external` for external-only articles
 
 ### Branching
 

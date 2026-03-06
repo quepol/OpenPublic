@@ -1,10 +1,232 @@
 <!DOCTYPE html>
+<!--
+================================================================================
+  ARTICLE CREATION TEMPLATE — for Claude Code (site maintenance reference)
+================================================================================
+
+PROMPT TO USE:
+  "Please use the template to add a new article to the site."
+
+Then provide the following information:
+
+  REQUIRED:
+    Title:          Full article title
+    Date display:   Human-readable date (e.g., March 6, 2026)
+    Date slug:      YYYYMMDD format (e.g., 20260306) — used for filename + ordering
+    Slug:           URL-friendly identifier (e.g., my-article-title)
+    Publication:    Where it was published (e.g., Medium, 18F, Ontario Digital)
+    Description:    1–2 sentence description for the article card in writing.html
+
+  OPTIONAL:
+    Co-author:      Co-author name if applicable (e.g., with Aaron Snow)
+    Original URL:   URL of the original publication (adds source note at bottom of article page)
+
+  CONTENT:
+    Provide the article body as markdown. Claude Code will convert it to HTML.
+
+================================================================================
+  STEPS CLAUDE CODE SHOULD FOLLOW
+================================================================================
+
+1. Create articles/{{DATE_SLUG}}-{{SLUG}}.html
+   — Use the ARTICLE PAGE TEMPLATE below
+   — Convert markdown body to semantic HTML (<p>, <h2>, <h3>, <ul>, <ol>)
+   — If {{CO_AUTHOR}} is provided, add it to the article-page-meta line
+   — If {{ORIGINAL_URL}} is provided, add the article-source-note paragraph
+
+2. Add a card to writing.html
+   — Find the correct position by comparing {{DATE_SLUG}} to existing card dates
+     (newest first — higher YYYYMMDD numbers go higher up)
+   — Use the ARTICLE CARD TEMPLATE below
+   — Add <div class="article-divider"></div> between the new card and its neighbors
+   — The insertion comment is: <!-- ADD NEW CARD HERE — copy an article-card block below as the template -->
+   — Always use class "hosted" on .article-card-link for articles in the articles/ directory
+
+3. If the article is external-only (no full text on this site):
+   — Skip step 1 (no article page)
+   — In step 2, set the href on both the title link and .article-card-link to the external URL
+   — Use class "external" (not "hosted") on .article-card-link
+   — Add target="_blank" rel="noopener noreferrer" to both links
+
+================================================================================
+  ARTICLE PAGE TEMPLATE
+  File: articles/{{DATE_SLUG}}-{{SLUG}}.html
+================================================================================
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles | Hillary Hartley / OpenPublic</title>
-    <meta name="description" content="Thoughts on government delivery, digital leadership, and building public trust.">
+    <title>{{TITLE}} | Hillary Hartley / OpenPublic</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Momo+Trust+Display:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Hillary Hartley /<span class="logo-accent">/</span> Open<span class="logo-accent">Public</span></a>
+            <div class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#work" onclick="closeNav()">What I Do</a></li>
+                <li><a href="../index.html#about" onclick="closeNav()">About Me</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Work Together
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M1 1l4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../workshops.html" onclick="closeNav()">Workshops</a></li>
+                        <li><a href="../speaking.html" onclick="closeNav()">Speaking</a></li>
+                        <li><a href="../coaching.html" onclick="closeNav()">Coaching</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Learn
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M1 1l4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../writing.html" onclick="closeNav()">Writing</a></li>
+                        <li><a href="../resources.html" onclick="closeNav()">Resources I Love</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#contact" onclick="closeNav()">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="article-page-hero">
+        <div class="container">
+            <div class="article-page-meta">
+                <span class="article-page-pub">{{PUBLICATION}}</span>
+                <span>·</span>
+                <span>{{DATE_DISPLAY}}</span>
+                <!-- If {{CO_AUTHOR}} is provided, add these two lines: -->
+                <!-- <span>·</span> -->
+                <!-- <span class="article-card-coauthor">with {{CO_AUTHOR}}</span> -->
+            </div>
+            <h1 class="article-page-title">{{TITLE}}</h1>
+            <p class="article-page-byline">By <strong>Hillary Hartley</strong></p>
+        </div>
+    </section>
+
+    <section class="article-body">
+        <div class="container">
+
+            <!-- ARTICLE BODY GOES HERE — convert markdown to HTML -->
+            <!-- Paragraphs:   <p>...</p> -->
+            <!-- Headings:     <h2>...</h2> or <h3>...</h3> -->
+            <!-- Bold:         <strong>...</strong> -->
+            <!-- Italic:       <em>...</em> -->
+            <!-- Links:        <a href="..." target="_blank" rel="noopener noreferrer">...</a> -->
+            <!-- Unordered:    <ul><li>...</li></ul> -->
+            <!-- Ordered:      <ol><li>...</li></ol> -->
+
+            <!-- If {{ORIGINAL_URL}} is provided, add this source note: -->
+            <!-- <p class="article-source-note">Originally published on <a href="{{ORIGINAL_URL}}" target="_blank" rel="noopener noreferrer">{{PUBLICATION}}</a>.</p> -->
+
+        </div>
+    </section>
+
+    <div class="article-back">
+        <div class="container">
+            <a href="../writing.html">← Back to Writing</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <span class="footer-text">© 2026 Hillary Hartley | Toronto, ON | Business number: 70774 3365</span>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hillaryhartley/" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://medium.com/@hillary" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                    Medium
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() { document.querySelector('.nav-links').classList.toggle('active'); }
+        function closeNav() { document.querySelector('.nav-links').classList.remove('active'); }
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('.nav-links');
+            const toggle = document.querySelector('.nav-toggle');
+            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                nav.classList.remove('active');
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) {
+                    d.classList.remove('active');
+                    d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = this.closest('.nav-dropdown');
+                    const isActive = dropdown.classList.contains('active');
+                    document.querySelectorAll('.nav-dropdown').forEach(function(d) {
+                        d.classList.remove('active');
+                        d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+                    });
+                    if (!isActive) { dropdown.classList.add('active'); this.setAttribute('aria-expanded', 'true'); }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+================================================================================
+  ARTICLE CARD TEMPLATE
+  Insert into: writing.html, inside <section id="articles">
+  Position: newest first — compare {{DATE_SLUG}} numerically to find the right spot
+  Surround with: <div class="article-divider"></div> between this and adjacent cards
+================================================================================
+
+<article class="article-card">
+    <div class="article-card-meta">
+        <span class="article-card-pub">{{PUBLICATION}}</span>
+        <span class="article-card-dot">·</span>
+        <span class="article-card-date">{{DATE_DISPLAY}}</span>
+        <!-- If {{CO_AUTHOR}} provided: -->
+        <!-- <span class="article-card-dot">·</span> -->
+        <!-- <span class="article-card-coauthor">with {{CO_AUTHOR}}</span> -->
+    </div>
+    <h3 class="article-card-title">
+        <a href="articles/{{DATE_SLUG}}-{{SLUG}}.html">{{TITLE}}</a>
+    </h3>
+    <p class="article-card-desc">{{DESCRIPTION}}</p>
+    <a href="articles/{{DATE_SLUG}}-{{SLUG}}.html" class="article-card-link hosted">Read →</a>
+</article>
+
+================================================================================
+  END OF TEMPLATE
+================================================================================
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Template | Hillary Hartley / OpenPublic</title>
+    <meta name="description" content="Site maintenance template for adding new articles. Not a public page.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Momo+Trust+Display:wght@800&display=swap" rel="stylesheet">
@@ -54,16 +276,41 @@
 
     <section id="page-hero" class="page-hero">
         <div class="container">
-            <h1 class="hero-headline">Articles</h1>
-            <p class="hero-subhead">Thoughts on government delivery, digital leadership, and building public trust.</p>
+            <h1 class="hero-headline">Article Template</h1>
+            <p class="hero-subhead">Site maintenance file — see the HTML comment at the top of this page for full instructions.</p>
         </div>
     </section>
 
-    <section id="coming-soon" class="workshop-section">
+    <section class="workshop-section">
         <div class="container">
             <div class="section-content">
-                <p>Coming soon. In the meantime, you can find my writing on Medium.</p>
-                <a href="https://medium.com/@hillary" target="_blank" rel="noopener noreferrer" class="email-link">Read on Medium</a>
+                <h2 class="section-title">How to add a new article</h2>
+                <p>This page is a reference template for site maintenance. To add a new article, open a Claude Code session and say:</p>
+                <blockquote style="border-left: 3px solid var(--pink, #ff1493); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic;">
+                    "Please use the template to add a new article to the site."
+                </blockquote>
+                <p>Then provide the following information:</p>
+
+                <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Required</h3>
+                <ul style="line-height: 1.8; padding-left: 1.5rem;">
+                    <li><strong>Title</strong> — Full article title</li>
+                    <li><strong>Date display</strong> — Human-readable date (e.g., March 6, 2026)</li>
+                    <li><strong>Date slug</strong> — YYYYMMDD format (e.g., 20260306) — used for the filename and for ordering</li>
+                    <li><strong>Slug</strong> — URL-friendly identifier (e.g., my-article-title)</li>
+                    <li><strong>Publication</strong> — Where it was published (e.g., Medium, 18F, Ontario Digital)</li>
+                    <li><strong>Description</strong> — 1–2 sentence description for the article card</li>
+                </ul>
+
+                <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Optional</h3>
+                <ul style="line-height: 1.8; padding-left: 1.5rem;">
+                    <li><strong>Co-author</strong> — Co-author name if applicable (e.g., with Aaron Snow)</li>
+                    <li><strong>Original URL</strong> — URL of the original publication (adds a source note at the bottom of the article page)</li>
+                </ul>
+
+                <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.75rem;">Content</h3>
+                <p>Provide the article body as <strong>markdown</strong>. Claude Code will convert it to HTML inside the article page.</p>
+
+                <p style="margin-top: 2rem;">The full article page template and card template are in the HTML comment at the top of this file's source code.</p>
             </div>
         </div>
     </section>
@@ -93,13 +340,11 @@
             document.querySelector('.nav-links').classList.remove('active');
         }
 
-        // Close mobile nav when clicking outside
         document.addEventListener('click', function(e) {
             const nav = document.querySelector('.nav-links');
             const toggle = document.querySelector('.nav-toggle');
             if (!nav.contains(e.target) && !toggle.contains(e.target)) {
                 nav.classList.remove('active');
-                // Also close any open dropdowns
                 document.querySelectorAll('.nav-dropdown').forEach(function(d) {
                     d.classList.remove('active');
                     d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
@@ -107,43 +352,18 @@
             }
         });
 
-        // Dropdown toggle for mobile
         document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle) {
             toggle.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
                     const dropdown = this.closest('.nav-dropdown');
                     const isActive = dropdown.classList.contains('active');
-
-                    // Close all other dropdowns
                     document.querySelectorAll('.nav-dropdown').forEach(function(d) {
                         d.classList.remove('active');
                         d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
                     });
-
-                    // Toggle current dropdown
-                    if (!isActive) {
-                        dropdown.classList.add('active');
-                        this.setAttribute('aria-expanded', 'true');
-                    }
+                    if (!isActive) { dropdown.classList.add('active'); this.setAttribute('aria-expanded', 'true'); }
                 }
-            });
-        });
-
-        // Copy email to clipboard on click
-        document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                const email = this.href.replace('mailto:', '');
-                navigator.clipboard.writeText(email).then(function() {
-                    // Show copied notification
-                    const notification = document.createElement('div');
-                    notification.className = 'email-copied';
-                    notification.textContent = 'Email copied to clipboard!';
-                    document.body.appendChild(notification);
-                    setTimeout(function() {
-                        notification.remove();
-                    }, 2000);
-                });
             });
         });
     </script>
