@@ -8,6 +8,7 @@ The site includes:
 - A brief overview of my work and focus areas  
 - Background on my experience in public-sector digital delivery  
 - Descriptions of talks and workshops on leadership, policy, and delivery  
+- Articles written or co-authored by me  
 - Contact information  
 
 ## How the site is built
