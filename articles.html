@@ -159,6 +159,23 @@ Then provide the following information:
         </div>
     </section>
 
+    <div class="article-post-nav">
+        <div class="container">
+            <div class="article-post-nav-inner">
+            [If PREV_ARTICLE exists: <a href="{{PREV_FILENAME}}" class="article-post-nav-link prev">
+                <span class="article-post-nav-label">← Previous post</span>
+                <span class="article-post-nav-title">{{PREV_TITLE}}</span>
+            </a>
+            else: <div></div>]
+            [If NEXT_ARTICLE exists: <a href="{{NEXT_FILENAME}}" class="article-post-nav-link next">
+                <span class="article-post-nav-label">Next post →</span>
+                <span class="article-post-nav-title">{{NEXT_TITLE}}</span>
+            </a>
+            else: <div></div>]
+            </div>
+        </div>
+    </div>
+
     <div class="article-back">
         <div class="container">
             <a href="../writing.html">← Back to Writing</a>

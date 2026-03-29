@@ -124,6 +124,7 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 - `.article-page-title` — article title
 - `.article-page-byline` / `.article-page-meta` / `.article-page-pub` — metadata
 - `.article-body` — body content with styled `p`, `h2`, `h3`, `ul`, `ol`
+- `.article-post-nav` — previous/next post navigation (sits between article body and `.article-back`)
 - `.article-back` — "← Back to writing" link
 
 ## Services Directory
@@ -180,6 +181,7 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 4. Add a card to `writing.html` in the correct date position (newest first, compare `DATE_SLUG` numerically)
 5. Separate cards with `<div class="article-divider"></div>`
 6. Use `.article-card-link.hosted` for articles on this site; `.article-card-link.external` for external-only articles
+7. Set the correct prev/next links in the new article based on its position in the date-sorted sequence, then update the neighboring articles: set the new article as "next" on the article immediately before it, and as "prev" on the article immediately after it
 
 ### Branching
 
