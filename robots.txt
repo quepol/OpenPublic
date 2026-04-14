@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block aggressive scrapers
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+Sitemap: https://openpublic.cc/sitemap.xml
