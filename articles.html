@@ -37,9 +37,16 @@ Then provide the following information:
   {{DATE_SLUG}}     Format the provided date as YYYYMMDD (e.g., 20260306).
                     If only month+year given, use YYYYMM (e.g., 202603).
 
-  {{DESCRIPTION}}   Write a 1–2 sentence card blurb that captures the article's
-                    central argument or hook. Base it on the article body content.
-                    Keep it under ~200 characters. Do not start with "This article..."
+  {{DESCRIPTION}}   Write a 1–2 sentence blurb that captures the article's central
+                    argument or hook. Base it on the article body content. Keep it
+                    under ~200 characters. Do not start with "This article..."
+                    This value is reused in og:description and twitter:description.
+
+  {{ARTICLE_URL}}   https://openpublic.cc/articles/{{DATE_SLUG}}-{{SLUG}}.html
+                    (Derived — used in canonical, og:url, and JSON-LD.)
+
+  {{DATE_SLUG_ISO}} ISO date for JSON-LD datePublished: YYYY-MM-DD (e.g., 2026-03-06).
+                    If only month+year given, use YYYY-MM (e.g., 2026-03).
 
 ================================================================================
   STEPS CLAUDE CODE SHOULD FOLLOW
@@ -78,6 +85,17 @@ Then provide the following information:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{TITLE}} | Hillary Hartley / OpenPublic</title>
     <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="canonical" href="{{ARTICLE_URL}}">
+    <meta property="og:title" content="{{TITLE}} | Hillary Hartley / OpenPublic">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:url" content="{{ARTICLE_URL}}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://openpublic.cc/hillary-hartley.jpg">
+    <meta property="og:site_name" content="OpenPublic">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}} | Hillary Hartley / OpenPublic">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <meta name="twitter:image" content="https://openpublic.cc/hillary-hartley.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Momo+Trust+Display:wght@800&display=swap" rel="stylesheet">
@@ -227,6 +245,24 @@ Then provide the following information:
             });
         });
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0MNTKVYVS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F0MNTKVYVS');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{TITLE}}",
+      "datePublished": "{{DATE_SLUG_ISO}}",
+      "author": {"@type": "Person", "name": "Hillary Hartley", "url": "https://openpublic.cc"},
+      "url": "{{ARTICLE_URL}}",
+      "publisher": {"@type": "Organization", "name": "OpenPublic", "url": "https://openpublic.cc"}
+    }
+    </script>
 </body>
 </html>
 
@@ -261,6 +297,7 @@ Then provide the following information:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article Template | Hillary Hartley / OpenPublic</title>
     <meta name="description" content="Site maintenance template for adding new articles. Not a public page.">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Momo+Trust+Display:wght@800&display=swap" rel="stylesheet">
