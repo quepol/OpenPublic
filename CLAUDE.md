@@ -172,7 +172,9 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 | Slug | Lowercase title, strip punctuation, replace spaces with hyphens; truncate at ~60 chars at a word boundary |
 | Date display | Format as "Month D, YYYY" (or "Month YYYY" if only month+year given) |
 | Date slug | Format as YYYYMMDD (or YYYYMM if only month+year given) |
-| Description | Write a 1–2 sentence blurb from the article body; under ~200 chars; don't start with "This article..." |
+| Description | Write a 1–2 sentence blurb from the article body; under ~200 chars; don't start with "This article..." — reused in og:description and twitter:description |
+| Article URL | `https://openpublic.cc/articles/{{DATE_SLUG}}-{{SLUG}}.html` — used in canonical, og:url, and JSON-LD |
+| Date ISO | YYYY-MM-DD (or YYYY-MM if month+year only) — used in JSON-LD datePublished |
 
 **Steps to follow:**
 1. Derive slug, date display, date slug, and description from the inputs above
