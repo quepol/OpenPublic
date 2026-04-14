@@ -81,27 +81,17 @@ Then provide the following information:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0MNTKVYVS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-F0MNTKVYVS');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{TITLE}} | Hillary Hartley / OpenPublic</title>
     <meta name="description" content="{{DESCRIPTION}}">
     <link rel="canonical" href="{{ARTICLE_URL}}">
-    <!-- Open Graph -->
     <meta property="og:title" content="{{TITLE}} | Hillary Hartley / OpenPublic">
     <meta property="og:description" content="{{DESCRIPTION}}">
     <meta property="og:url" content="{{ARTICLE_URL}}">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://openpublic.cc/hillary-hartley.jpg">
     <meta property="og:site_name" content="OpenPublic">
-    <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{TITLE}} | Hillary Hartley / OpenPublic">
     <meta name="twitter:description" content="{{DESCRIPTION}}">
@@ -254,6 +244,13 @@ Then provide the following information:
                 }
             });
         });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0MNTKVYVS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F0MNTKVYVS');
     </script>
     <script type="application/ld+json">
     {
