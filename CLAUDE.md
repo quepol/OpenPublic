@@ -143,7 +143,7 @@ Individual articles live in `articles/` with filenames `YYYYMMDD-slug.html`. The
 
 ### Adding a New Page
 
-1. Copy an existing page as a template (e.g. `coaching.html`)
+1. Copy an existing page as a template (e.g. `workshops.html`)
 2. Update `<title>`, `<meta name="description">`, and page content
 3. Keep the nav block exactly as-is (copy from any existing page)
 4. Add link to nav dropdown in **every existing page** if it should appear in nav
